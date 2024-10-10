@@ -1,11 +1,15 @@
 <template>
-    <!-- <div :style="{ height: '90000%', backgroundColor: '#f0f0ff' }"> -->
-    <el-tabs type="border-card" :style="{ height: '100%'}">
-      <el-tab-pane label="Radar Map" :style="{ height: '100%'}"><RadarMap :airport="props.airport" /> </el-tab-pane>
-      <!-- <el-tab-pane label="Aeronautical Chart"> foo </el-tab-pane> -->
-      <el-tab-pane label="Satelite" :style="{ height: '100%'}"><SatelliteMap v-if="coordinate" :coordinate="coordinate"/></el-tab-pane>
-      <!-- <el-tab-pane label="Task">Task</el-tab-pane> -->
-    </el-tabs>
+  <!-- <div :style="{ height: '90000%', backgroundColor: '#f0f0ff' }"> -->
+  <el-tabs type="border-card" :style="{ height: '100%' }">
+    <el-tab-pane label="Radar Map" :style="{ height: '100%' }">
+      <RadarMap :airport="props.airport" />
+    </el-tab-pane>
+    <!-- <el-tab-pane label="Aeronautical Chart"> foo </el-tab-pane> -->
+    <el-tab-pane label="Satelite" :style="{ height: '100%' }">
+      <SatelliteMap v-if="coordinate" :coordinate="coordinate" />
+    </el-tab-pane>
+    <!-- <el-tab-pane label="Task">Task</el-tab-pane> -->
+  </el-tabs>
   <!-- </div> -->
 </template>
 
@@ -22,10 +26,10 @@ const props = defineProps({
   },
 });
 
-const coordinate = computed(()=>{
+const coordinate = computed(() => {
   var r = {
-  "lat":props.airport.extraInfo.latitude_deg,
-  "lng":props.airport.extraInfo.longitude_deg,
+    "lat": props.airport.extraInfo.latitude_deg,
+    "lng": props.airport.extraInfo.longitude_deg,
   };
   console.log("Location chooses:", r);
   return r;
@@ -34,6 +38,4 @@ const coordinate = computed(()=>{
 </script>
 
 
-<style>
-
-</style>
+<style></style>

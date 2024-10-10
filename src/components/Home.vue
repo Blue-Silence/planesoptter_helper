@@ -4,12 +4,13 @@
             <el-aside width="200px">
                 <Menu @select-page="select_page" />
             </el-aside>
-            <el-container :style="{ height: '100vh' }" >
-                <el-header :style="{height: '5vh'}">
+            <el-container :style="{ height: '100vh' }">
+                <el-header :style="{ height: '5vh' }">
                     <TopBar @send-airport-selected="airportSelect" />
                 </el-header>
-                <el-main :style="{height: '95vh'}">
-                    <AirportInfo v-if="airport_code" :airport-code="airport_code" :current_page="current_page" :style="{height: '100%'}"/>
+                <el-main :style="{ height: '95vh' }">
+                    <AirportInfo v-if="airport_code" :airport-code="airport_code" :current_page="current_page"
+                        :style="{ height: '100%' }" />
                     <el-card v-else="airport-code" class="hint">
                         <span> Please choose an airport.</span>
                     </el-card>
@@ -27,8 +28,8 @@ import TopBar from './TopBar.vue';
 import Menu from './Menu.vue';
 
 const current_page = ref(1);
-const select_page = (v) => { 
-    current_page.value = v; 
+const select_page = (v) => {
+    current_page.value = v;
 };
 
 const airport_selected = ref(null)
@@ -46,15 +47,22 @@ const airportSelect = (airport) => {
 
 <style>
 .main_info {
-  background-image: url('@/assets/images/DSC_1187.JPG'); /* 使用本地图片 */
-  background-size: cover; /* 使背景图覆盖整个卡片 */
-  background-position: center; /* 居中背景图 */
-  color: white; /* 根据背景图调整文本颜色 */
+    background-image: url('@/assets/images/DSC_1187.JPG');
+    /* 使用本地图片 */
+    background-size: cover;
+    /* 使背景图覆盖整个卡片 */
+    background-position: center;
+    /* 居中背景图 */
+    color: white;
+    /* 根据背景图调整文本颜色 */
 }
 
-.hint > * {
-        background-color: rgba(255, 255, 255, 0.2); /* 设置背景为半透明 */
-        backdrop-filter: blur(10px); /* 应用模糊效果 */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 可选，添加阴影 */
-    }
+.hint>* {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* 设置背景为半透明 */
+    backdrop-filter: blur(10px);
+    /* 应用模糊效果 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* 可选，添加阴影 */
+}
 </style>

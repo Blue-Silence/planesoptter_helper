@@ -1,5 +1,5 @@
 <template>
-  <div class="airport-details" :style="{ height: '100%'}">
+  <div class="airport-details" :style="{ height: '100%' }">
     <div v-if="error">{{ error }}</div>
     <!-- <div v-if="airportInfo">
       <p>IATA 代码: {{ airportInfo.iata }}</p>
@@ -15,7 +15,7 @@
     <DetailTable v-if="airportInfo && airportInfo.extraInfo" :airport="airportInfo.extraInfo" />
     <!-- <el-card v-else v-if="!error" v-loading="false" style="height: '1000px'"></el-card> -->
     <div v-else v-loading.fullscreen.lock="true"></div>
-    
+
 
   </div>
 </template>
@@ -95,14 +95,17 @@ watch(props, fetchAirportInfo);
 </script>
 
 <style scoped>
-
 .transparent-square {
-  width: 100%; /* 正方形的宽度 */
-  height: 60vh; /* 正方形的高度 */
+  width: 100%;
+  /* 正方形的宽度 */
+  height: 60vh;
+  /* 正方形的高度 */
   opacity: 1;
-  background-color: rgba(255, 255, 255, 0); /* 半透明背景 */
-  margin: 0;  /* 去掉子元素的外边距 */
-  padding: 0; /* 去掉子元素的内边距 */
+  background-color: rgba(255, 255, 255, 0);
+  /* 半透明背景 */
+  margin: 0;
+  /* 去掉子元素的外边距 */
+  padding: 0;
+  /* 去掉子元素的内边距 */
 }
-
 </style>

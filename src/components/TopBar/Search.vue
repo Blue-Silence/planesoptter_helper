@@ -1,15 +1,8 @@
 <template>
   <div>
-    <el-autocomplete
-      v-model="search"
-      :fetch-suggestions="filterAirports"
-      :trigger-on-focus="false"
-      clearable
-      :style="{ width: '100%' }"
-      class="custom-input"
-      placeholder="Input Airport name or code"
-      @select="selectAirport"
-    />
+    <el-autocomplete v-model="search" :fetch-suggestions="filterAirports" :trigger-on-focus="false" clearable
+      :style="{ width: '100%' }" class="custom-input" placeholder="Input Airport name or code"
+      @select="selectAirport" />
   </div>
 </template>
 
@@ -25,15 +18,15 @@ const emit = defineEmits(['send-airport-selected']);
 const filterAirports = (search, cb) => {
   const query = search.toLowerCase();
   const results = airportsData.filter(
-          airport =>
-              airport.name.toLowerCase().includes(query) ||
-              airport.iata_code.toLowerCase().includes(query)
-      ).map( 
-          airport => {
-              airport.value = `${airport.name} (${airport.iata_code})`;
-              return airport;
-          }
-      )
+    airport =>
+      airport.name.toLowerCase().includes(query) ||
+      airport.iata_code.toLowerCase().includes(query)
+  ).map(
+    airport => {
+      airport.value = `${airport.name} (${airport.iata_code})`;
+      return airport;
+    }
+  )
   console.log("Results:", results);
   cb(results);
 };
@@ -47,6 +40,7 @@ const selectAirport = airport => {
 
 <style>
 .custom-input .el-input {
-  height: 5vh !important; /* 设置输入框高度 */
+  height: 5vh !important;
+  /* 设置输入框高度 */
 }
 </style>

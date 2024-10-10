@@ -1,9 +1,9 @@
 <template>
 
-  <div :style="{ height: '100%'}">
-    <el-card :style="{ height: '100%'}">
+  <div :style="{ height: '100%' }">
+    <el-card :style="{ height: '100%' }">
 
-      <el-row justify="space-evenly" :style="{ height: '100%'}">
+      <el-row justify="space-evenly" :style="{ height: '100%' }">
         <el-col :span="7">
           <Weather :coordinate="props.coordinate" @send-weather="send_weather" :useDemoData="props.useDemoData" />
         </el-col>

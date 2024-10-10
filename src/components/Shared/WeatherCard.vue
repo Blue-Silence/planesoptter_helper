@@ -1,6 +1,6 @@
 <template>
     <el-tooltip placement="top">
-        <template #content> 
+        <template #content>
             Condition: {{ props.weather.text }}<br />
             Wind Direction: {{ props.weather.windDir }}
         </template>
@@ -22,23 +22,23 @@
 </template>
 
 <script setup>
-    import helper from "@/global_func.js";
+import helper from "@/global_func.js";
 
-    const props = defineProps({
-        weather: {
-            type: Object,
-            required: true
-        }
-        });
+const props = defineProps({
+    weather: {
+        type: Object,
+        required: true
+    }
+});
 
-    const formatTime = (time) => {
-        const date = new Date(time);
-        //return date.toLocaleString();
-        const month = date.getMonth() + 1;  // Months are zero-indexed in JS
-        const day = date.getDate();
-        const hour = date.getHours();
-        const minutes = date.getMinutes().toString().padStart(2, '0'); // Ensure two digits
-        return `${month}/${day} ${hour}:${minutes}`;
-    };
+const formatTime = (time) => {
+    const date = new Date(time);
+    //return date.toLocaleString();
+    const month = date.getMonth() + 1;  // Months are zero-indexed in JS
+    const day = date.getDate();
+    const hour = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, '0'); // Ensure two digits
+    return `${month}/${day} ${hour}:${minutes}`;
+};
 
 </script>
