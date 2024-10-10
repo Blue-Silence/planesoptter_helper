@@ -43,7 +43,7 @@
     });
 
 
-    import WeatherCard from '../Shared/WeatherCard.vue';
+    import WeatherCard from '@/components/Shared/WeatherCard.vue';
   
     import SunCalc from 'suncalc';
     const solar = computed(()=>

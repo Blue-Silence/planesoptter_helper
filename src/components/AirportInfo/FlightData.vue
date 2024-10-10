@@ -105,7 +105,7 @@
   
   import demo_response_arr from '@/assets/api_demo_resp/arrival.json';
   import demo_response_dep from '@/assets/api_demo_resp/departure.json';
-  import FlightDetail from './FlightDetail.vue';
+  import FlightDetail from './FlightData/FlightDetail.vue';
   // 方法：获取航班信息
   const fetchFlights = async () => {
 

@@ -15,7 +15,7 @@
   import 'qweather-icons/font/qweather-icons.css'; // Import QWeather icons
   
   import api_keys from '@/assets/api_keys.json';
-import WeatherCard from '../Shared/WeatherCard.vue';
+  import WeatherCard from '@/components/Shared/WeatherCard.vue';
   
   const hourlyForecast = ref([]);
   const props = defineProps({

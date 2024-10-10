@@ -24,11 +24,11 @@
 <script setup>
 import { computed, defineProps, ref, watch, useTemplateRef } from 'vue';
 //import PlaceholderBoxes from './deprecated/PlaceholderBoxes.vue';
-import AirportDetails from './AirportDetails.vue';
-import FlightData from './FlightData.vue';
-import SpotGuide from './SpotGuide.vue';
-import WeatherSun from './WeatherSun.vue';
-import Map from './Map.vue';
+import AirportDetails from './AirportInfo/AirportDetails.vue';
+import FlightData from './AirportInfo/FlightData.vue';
+import SpotGuide from './AirportInfo/SpotGuide.vue';
+import WeatherSun from './AirportInfo/WeatherSun.vue';
+import Map from './AirportInfo/Map.vue';
 
 // 定义接收的 props
 const props = defineProps({
