@@ -12,11 +12,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, inject } from 'vue';
 import axios from 'axios';
 import 'qweather-icons/font/qweather-icons.css'; // Import QWeather icons
 
-import api_keys from '@/assets/api_keys.json';
+const api_keys = inject('api_keys');
 import WeatherCard from '@/components/Shared/WeatherCard.vue';
 
 const hourlyForecast = ref([]);
@@ -38,7 +38,7 @@ const fetchWeatherData = async () => {
   const location = props.useDemoData ? '116.41,39.92' : // Example coordinates (Beijing) 
     `${props.coordinate[1].toFixed(2)},${props.coordinate[0].toFixed(2)}`; // Coordinate
   console.log("We are using coordinate:", location);
-  const apiKey = api_keys["devapi.qweather.com"]; // Replace with your QWeather API Key
+  const apiKey = api_keys.value["devapi.qweather.com"]; // Replace with your QWeather API Key
   const url = `https://devapi.qweather.com/v7/grid-weather/24h?lang=en&location=${location}&key=${apiKey}`;
 
   try {

@@ -21,9 +21,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, defineEmits, watch } from 'vue';
-import api_keys from '@/assets/api_keys.json';
+import { ref, onMounted, defineEmits, watch, inject } from 'vue';
 import DetailTable from './AirportDetail/DetailTable.vue';
+
+const api_keys = inject('api_keys');
 
 const props = defineProps({
   airportCode: {
@@ -42,7 +43,7 @@ const fetchAirportInfo = async () => {
     // 获取机场的 ICAO 代码
     const icaoResponse = await fetch(`https://fr24api.flightradar24.com/api/static/airports/${props.airportCode}/light`, {
       headers: {
-        'Authorization': `Bearer ${api_keys['fr24api.flightradar24.com']}`,
+        'Authorization': `Bearer ${api_keys.value['fr24api.flightradar24.com']}`,
         'Accept-Version': 'v1',
         'Accept': 'application/json',
       },
@@ -67,7 +68,7 @@ const fetchAirportInfo = async () => {
       };
 
       // 使用新的 API 获取额外信息
-      const additionalResponse = await fetch(`https://airportdb.io/api/v1/airport/${airportInfo.value.icao}?apiToken=${api_keys['airportdb.io']}`);
+      const additionalResponse = await fetch(`https://airportdb.io/api/v1/airport/${airportInfo.value.icao}?apiToken=${api_keys.value['airportdb.io']}`);
 
       if (!additionalResponse.ok) {
         throw new Error(`HTTP error! status: ${additionalResponse.status}`);

@@ -60,13 +60,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue';
+import { ref, computed, onMounted, watch, inject } from 'vue';
 import axios from 'axios';
-import api_keys from '@/assets/api_keys.json';
 
 import helper from '@/global_func.js'
 
-
+const api_keys = inject('api_keys');
 
 const drawer = ref(false)
 
@@ -99,7 +98,7 @@ const inboundFlights = ref([]);
 const flightNumberRegex = ref('');
 const aircraftTypeRegex = ref('');
 
-const key = api_keys['api.aviationstack.com']; // 替换为有效的 API Key
+const key = api_keys.value['api.aviationstack.com']; // 替换为有效的 API Key
 
 import demo_response_arr from '@/assets/api_demo_resp/arrival.json';
 import demo_response_dep from '@/assets/api_demo_resp/departure.json';

@@ -28,10 +28,11 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, inject, provide, watch } from 'vue';
 import AirportInfo from './AirportInfo.vue';
 import TopBar from './TopBar.vue';
 import Menu from './Menu.vue';
+
 
 const current_page = ref(1);
 const select_page = (v) => {
@@ -47,6 +48,14 @@ const airportSelect = (airport) => {
     airport_selected.value = airport;
 };
 
+/*
+
+import api_keys_template from '@/assets/api_keys_template.json';
+const api_keys = ref(api_keys_template);
+provide('api_keys', api_keys);
+watch(api_keys, ()=>console.log(api_keys));
+
+*/
 
 </script>
 
