@@ -5,14 +5,16 @@
         <h1>Airport Flight Schedule</h1>
 
         <!-- 筛选输入 -->
-        <div>
-          <label for="flightNumber">按航班号筛选: </label>
-
-          <el-input v-model="flightNumberRegex" style="width: 240px" placeholder="Please input regex" />
-
-          <label for="aircraftType">按机型筛选: </label>
-          <el-input v-model="aircraftTypeRegex" style="width: 240px" placeholder="Please input regex" />
-        </div>
+        <el-row justify="space-even">
+          <el-col :span="12">
+            <label for="flightNumber">Filter by flight ICAO code: </label>
+            <el-input v-model="flightNumberRegex" style="width: 240px" placeholder="Please input regex" />
+          </el-col>
+          <el-col :span="12">
+            <label for="aircraftType">Filter by flight plane type: </label>
+            <el-input v-model="aircraftTypeRegex" style="width: 240px" placeholder="Please input regex" />
+          </el-col>
+        </el-row>
       </div>
       <div :style="{ height: '90%' }">
         <el-row justify="space-around">
@@ -149,8 +151,9 @@ const filteredOutboundFlights = computed(() => {
     v.related_local_time = chooseTime(v.departure, false);
     v.weather = chooseWeatherByHour(v.related_local_time);
     return v;
-  })
-    ;
+  }).sort((a,b) => {
+    return (new Date(a.related_local_time))-(new Date(b.related_local_time));
+  });
 });
 
 const filteredInboundFlights = computed(() => {
@@ -167,6 +170,8 @@ const filteredInboundFlights = computed(() => {
     v.related_local_time = chooseTime(v.arrival, false);
     v.weather = chooseWeatherByHour(v.related_local_time);
     return v;
+  }).sort((a,b) => {
+    return (new Date(a.related_local_time))-(new Date(b.related_local_time));
   });
 });
 

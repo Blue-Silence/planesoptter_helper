@@ -1,22 +1,24 @@
 <template>
     <el-tooltip placement="top">
         <template #content>
-            Condition: {{ props.weather.text }}<br />
-            Wind Direction: {{ props.weather.windDir }}
+            Temperature: {{ props.weather.temp }}<br />
+            Wind Direction: {{ props.weather.windDir }}<br />
+            Wind Speed : {{ props.weather.windSpeed }}<br />
+            Humidity: {{ props.weather.humidity }}
         </template>
-        <div>
-            <el-row :style="{ backgroundColor: helper.weatherColor(props.weather) }">
-                <el-col :span="16">
+        <el-row :style="{ backgroundColor: helper.weatherColor(props.weather) }">
+            <el-col :span="10" justify="center">
+                <el-row justify="center">
                     <span>{{ formatTime(props.weather.fxTime) }}</span>
-                </el-col>
-                <el-col :span="8">
-                    <i :class="`qi-${props.weather.icon}`" class="weather-icon"></i>
-                </el-col>
-            </el-row>
-            <el-row :style="{ backgroundColor: helper.weatherColor(props.weather) }">
-                <el-col :span="24"><span>{{ props.weather.text }}</span></el-col>
-            </el-row>
-        </div>
+                </el-row>
+                <el-row justify="center">
+                    <span>{{ props.weather.text }}</span>
+                </el-row>
+            </el-col>
+            <el-col :span="14">
+                <i :class="`qi-${props.weather.icon}`" class="weather-icon" style="font-size: 2em;"></i>
+            </el-col>
+        </el-row>
     </el-tooltip>
 
 </template>
