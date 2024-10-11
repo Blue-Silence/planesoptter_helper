@@ -1,9 +1,9 @@
 <template>
   <el-row>
     <el-col :span="24">
-      <TrackMap v-if="props.flight_info.flight && props.flight_info.flight_status == 'active'"
-        :icao="props.flight_info.flight.icao" />
-      <h2 v-else>Flight status:{{ props.flight_info.flight_status }}</h2>
+      <TrackMap v-if="props.flight_info.aircraft && props.flight_info.aircraft.icao24"
+        :icao="props.flight_info.aircraft.icao24" />
+      <h2 v-else>Tracking not available. Flight status:{{ props.flight_info.flight_status }}</h2>
     </el-col>
   </el-row>
   <DetailTable :flight_info="props.flight_info" />
