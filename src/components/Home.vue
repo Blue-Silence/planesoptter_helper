@@ -9,11 +9,17 @@
                     <TopBar @send-airport-selected="airportSelect" />
                 </el-header>
                 <el-main :style="{ height: '95vh' }">
-                    <AirportInfo v-if="airport_code" :airport-code="airport_code" :current_page="current_page"
-                        :style="{ height: '100%' }" />
-                    <el-card v-else="airport-code" class="hint">
-                        <span> Please choose an airport.</span>
-                    </el-card>
+                    <el-row justify="center" :style="{ height: '100%' }">
+                        <el-col v-if="airport_code" :span="24" :style="{ height: '100%' }">
+                            <AirportInfo v-if="airport_code" :airport-code="airport_code" :current_page="current_page"
+                                :style="{ height: '100%' }" />
+                        </el-col>
+                        <el-col v-else :span="8" :style="{ height: '100%' }">
+                            <el-card class="hint">
+                                <h1> Please choose an airport.</h1>
+                            </el-card>
+                        </el-col>
+                    </el-row>
                 </el-main>
             </el-container>
         </el-container>

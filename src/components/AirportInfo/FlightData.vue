@@ -104,13 +104,11 @@ const key = api_keys['api.aviationstack.com']; // 替换为有效的 API Key
 import demo_response_arr from '@/assets/api_demo_resp/arrival.json';
 import demo_response_dep from '@/assets/api_demo_resp/departure.json';
 import FlightDetail from './FlightData/FlightDetail.vue';
-// 方法：获取航班信息
+// Method：Get flight info
 const fetchFlights = async () => {
 
   if (props.useDemoData) {
-    // 过滤出港航班
     outboundFlights.value = demo_response_dep.data;
-    // 过滤进港航班
     inboundFlights.value = demo_response_arr.data;
     return;
   }
@@ -130,17 +128,14 @@ const fetchFlights = async () => {
       },
     });
 
-    // 过滤出港航班
     outboundFlights.value = response_dep.data.data;
-
-    // 过滤进港航班
     inboundFlights.value = response_arr.data.data;
   } catch (error) {
-    console.error('获取航班信息失败:', error);
+    console.error('Flight info fetch fail:', error);
   }
 };
 
-// 过滤航班并计算相关时间及天气
+// Filter flight, get/choose weather and time.
 const filteredOutboundFlights = computed(() => {
   return outboundFlights.value.filter((flight) => {
     const flightMatch = flightNumberRegex.value

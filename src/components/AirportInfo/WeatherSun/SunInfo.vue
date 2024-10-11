@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+
 
 const props = defineProps({
   coordinate: {
@@ -18,17 +18,11 @@ const props = defineProps({
   },
 });
 
-const sunData = ref(null);
-const error = ref(null);
-
-const latitude = ref(props.coordinate[0]);
-const longitude = ref(props.coordinate[1]);
 
 const getUrl = (coordinate) => {
   const latitude = coordinate[0];
   const longitude = coordinate[1];
   console.log("Coordinate as follows:", latitude, longitude);
-  console.log("Hloy fucking shit!!!!!");
   return `https://suncalc.org/#/${latitude},${longitude},12/null/null/null/null`;
 };
 

@@ -23,7 +23,6 @@ const getUrl = (airport) => {
 </script>
 
 
-
 <style>
 .flex-container {
   display: flex;

@@ -1,8 +1,8 @@
 <template>
   <div :style="{ height: '100%' }">
-    <el-card :style="{ height: '100%' }" class="weather_card">
-      <h2>24-Hour Weather Forecast</h2>
-      <el-scrollbar :style="{ height: '65%' }" class="scroll-container">
+    <el-card :style="{ height: '100%' }" :body-style="{ height: '100%' }" class="weather_card">
+      <h2 :style="{ height: '5%' }">24-Hour Weather Forecast</h2>
+      <el-scrollbar :style="{ height: '60%' }" class="scroll-container">
         <p v-for="w in hourlyForecast" class="scrollbar-item">
           <WeatherCard :weather="w" />
         </p>
@@ -51,16 +51,6 @@ const fetchWeatherData = async () => {
   } catch (error) {
     console.error('Error fetching weather data:', error);
   }
-};
-
-const formatTime = (time) => {
-  const date = new Date(time);
-  //return date.toLocaleString();
-  const month = date.getMonth() + 1;  // Months are zero-indexed in JS
-  const day = date.getDate();
-  const hour = date.getHours();
-  const minutes = date.getMinutes().toString().padStart(2, '0'); // Ensure two digits
-  return `${month}/${day} ${hour}:${minutes}`;
 };
 
 onMounted(() => {
