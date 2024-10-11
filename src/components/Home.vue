@@ -1,4 +1,5 @@
 <template>
+    <el-alert title="Before you start, click 'Config' to set your api keys." type="success" />
     <div :style="{ height: '100vh', backgroundColor: '#f0f0f1' }">
         <el-container class="main_info">
             <el-aside width="200px">

@@ -11,14 +11,14 @@
         </el-col>
     </el-row>
 
-    <el-dialog v-model="dialogVisible" title="Config" width="800">
+    <el-dialog v-model="dialogVisible"  title="Config" width="800">
         <Config />
     </el-dialog>
 </template>
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, provide } from 'vue';
 import AirportCard from './TopBar/AirportCard.vue';
 import Search from './TopBar/Search.vue';
 import Config from './TopBar/Config.vue';
@@ -26,6 +26,8 @@ const emit = defineEmits(['sendAirportSelected']);
 
 const airport = ref(null);
 const dialogVisible = ref(false);
+
+provide('configDialogVisible', dialogVisible);
 
 const airportSelect = (airport_n) => {
     airport.value = airport_n;
