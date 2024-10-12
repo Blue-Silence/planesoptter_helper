@@ -1,14 +1,9 @@
-# planesoptter_helper
+# Planesoptter_helper
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the the individual project of the course Microservice Architecture. 
+You can find the **report/document** under **./doc** in both ***markdown*** and ***pdf*** format.
+Do note that the report/document contains **everything about the project except the project source code itself**. No other files will be given separately for ***Configuration and deployment description***, ***JSON Schema, database script, and XML Schema***, or ***the documents of the Web APIs***.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
