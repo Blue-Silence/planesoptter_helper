@@ -4,7 +4,7 @@
       <h3>Weather and Solar Psition</h3>
       <el-row>
         <el-col :span="10">
-          <WeatherCard v-if="props.flight_info.weather" :weather="props.flight_info.weather" />
+          <WeatherCard v-if="props.flight_info.weather" :weather="props.flight_info.weather" :style="{height : '200px'}"/>
           <h3 v-else> Unavailable </h3>
         </el-col>
         <el-col :span="10">
