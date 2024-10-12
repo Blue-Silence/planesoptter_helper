@@ -6,11 +6,13 @@ import 'element-plus/dist/index.css';
 import { provide, ref, watch } from 'vue';
 import api_keys_template from '@/assets/api_keys_template.json';
 const api_keys = ref(api_keys_template);
+const use_demo = ref(true);
 watch(api_keys, () => update_keys());
 
 const app = createApp({
   setup() {
     provide('api_keys', api_keys);
+    provide('use_demo', use_demo);
   },
   render: () => h(App) // 这里渲染根组件
 });

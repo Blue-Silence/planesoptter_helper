@@ -15,7 +15,7 @@
     </div>
     <div v-show="props.current_page == 4" v-loading="loading > 0">
       <FlightData v-if="airport_info && hourlyWeather" :icaoCode="airport_info.icao" :coordinate="coordinate"
-        :hourlyWeather="hourlyWeather" :use-demo-data="true" />
+        :hourlyWeather="hourlyWeather" :use-demo-data="use_demo" />
     </div>
     <div v-show="props.current_page == 5" v-loading="loading > 0">
       <SpotGuide v-if="airport_info" :airport="airport_info" />
@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { computed, defineProps, ref, watch, useTemplateRef } from 'vue';
+import { computed, defineProps, inject, ref, watch } from 'vue';
 //import PlaceholderBoxes from './deprecated/PlaceholderBoxes.vue';
 import AirportDetails from './AirportInfo/AirportDetails.vue';
 import FlightData from './AirportInfo/FlightData.vue';
@@ -47,6 +47,8 @@ const props = defineProps({
 const airport_info = ref(undefined)
 const hourlyWeather = ref(undefined)
 const loading = ref(2)
+
+const use_demo = inject('use_demo');
 
 const coordinate = computed(() => {
   return [airport_info.value.extraInfo.latitude_deg, airport_info.value.extraInfo.longitude_deg]
