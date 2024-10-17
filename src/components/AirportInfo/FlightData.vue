@@ -115,14 +115,14 @@ const fetchFlights = async () => {
   }
 
   try {
-    const response_arr = await axios.get(`http://api.aviationstack.com/v1/flights`, {
+    const response_arr = await axios.get(`https://api.aviationstack.com/v1/flights`, {
       params: {
         access_key: key,
         arr_icao: props.icaoCode,
       },
     });
 
-    const response_dep = await axios.get(`http://api.aviationstack.com/v1/flights`, {
+    const response_dep = await axios.get(`https://api.aviationstack.com/v1/flights`, {
       params: {
         access_key: key,
         dep_icao: props.icaoCode,
